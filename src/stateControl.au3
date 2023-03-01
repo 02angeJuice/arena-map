@@ -10,6 +10,8 @@ endfunc
 
 func stateLobby()
 	local $emptyTicket = [444, 19], $emptyTicketColor = '0xFFF4BA'
+	local $emptyTicketCheck = [432, 17], $emptyTicketCheckColor = '0xD5E3D1'
+
 	local $arenaEnds = [176, 406], $arenaEndsColor = '0xDBE3F5'
 	local $lobby = [366, 66], $lobbyColor = '0x819CC7'
 	local $cat = [292, 473], $catColor = '0xEBE7E0'
@@ -49,7 +51,7 @@ func stateLobby()
 		click(280, 205)
 		Sleep(2000)
 		;~ check ticket
-		if color($emptyTicket, $emptyTicketColor, false) <> false then
+		if color($emptyTicket, $emptyTicketColor, false) <> false AND color($emptyTicketCheck, $emptyTicketCheck, false) <> true then
 			click(910, 20)
 			;~ go to field
 			Sleep(6000)
@@ -68,9 +70,11 @@ func stateLobby()
 endfunc
 
 func stateField()
-	;~ local $ticket = [451, 14], $ticketColor = '0xFFF4BA'  ;~ DEFAULT: ticket = 7
-	local $ticket = [448, 21], $ticketColor = '0xF9EEB6'  ;~  ticket = 1
-	;~ local $ticket = [518, 21], $ticketColor = '0x1E2126'  ;~  ticket = 999
+	;~ local $ticket7 = [451, 14], $ticket7Color = '0xFFF4BA'  ;~ DEFAULT: ticket = 7
+	local $ticket1 = [448, 21], $ticket1Color = '0xF9EEB6'  ;~  ticket = 1
+	local $ticketFull = [438, 26], $ticketFullColor = '0xFFF4BA'
+	;~ local $ticket999 = [518, 21], $ticket999Color = '0x1E2126'  ;~  ticket = 999
+
 	local $field = [380, 70], $fieldColor = '0x222327'
 
 	ConsoleWrite('Field' & @CRLF)
@@ -80,7 +84,7 @@ func stateField()
 	
 	if color($field, $fieldColor, false) <> true then
 		;~ waiting for ticket
-		if color($ticket, $ticketColor, false) <> false then
+		if color($ticket1, $ticket1Color, false) <> false OR color($ticketFull, $ticketFullColor, false) <> false then
 			ConsoleWrite("the ticket is ready" & @CRLF)
 			WinActivate($hWND)
 			;~ send to lobby
