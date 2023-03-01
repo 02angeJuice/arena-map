@@ -73,7 +73,6 @@ func stateLobby()
 endfunc
 
 func stateField()
-	local $ticket1 = [448, 21], $ticket1Color = '0xF9EEB6'
 	local $ticketFull = [438, 26], $ticketFullColor = '0xFFF4BA'
 	local $field = [380, 70], $fieldColor = '0x222327'
 
@@ -84,7 +83,7 @@ func stateField()
 	
 	if color($field, $fieldColor, false) <> true then
 		;~ waiting for ticket
-		if color($ticket1, $ticket1Color, false) == true OR color($ticketFull, $ticketFullColor, false) == true then
+		if color($ticketFull, $ticketFullColor, false) == true then
 			ConsoleWrite("the ticket is ready" & @CRLF)
 			WinActivate($hWND)
 			;~ send to lobby
