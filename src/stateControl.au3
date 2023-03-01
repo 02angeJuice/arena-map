@@ -13,6 +13,7 @@ func stateLobby()
 	local $e2 = [452, 19], $e2Color = '0xFFF4BA'
 	local $e3 = [447, 26], $e3Color = '0xFDF2B9'
 	local $e4 = [444, 20], $e4Color = '0xFFF4BA'
+	local $count = [337, 20], $countColor = '0xA8A9A9'
 
 	local $arenaEnds = [176, 406], $arenaEndsColor = '0xDBE3F5'
 	local $lobby = [366, 66], $lobbyColor = '0x819CC7'
@@ -53,7 +54,7 @@ func stateLobby()
 		click(280, 205)
 		Sleep(2000)
 		;~ check ticket
-		if color($e1, $e1Color, false) == true AND color($e2, $e2Color, false) == true AND color($e3, $e3Color, false) == true AND color($e4, $e4Color, false) == true then
+		if color($e1, $e1Color, false) == true AND color($e2, $e2Color, false) == true AND color($e3, $e3Color, false) == true AND color($e4, $e4Color, false) == true AND color($count, $countColor, false) == true then
 			click(910, 20)
 			;~ go to field
 			Sleep(6000)
