@@ -62,9 +62,9 @@ func color($position, $color, $click = true, $addX = 0, $addY = 0)
 		if $click <> false then
 			targetClick(1, $position, $addX, $addY)
 		endif
-		return 1
+		return true
 	else
-		return 0
+		return false
 	endif
 endfunc
 
